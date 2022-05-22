@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StarIcon from '../../imgs/icon-star.svg';
-
 export const StyledButton = styled.div`
   width: 50px;
   height: 50px;
@@ -13,10 +11,10 @@ export const StyledButton = styled.div`
   align-items: center;
 `;
 
-export const BookmarkButton = () => {
+export const NumberButton = (props: string) => {
   return (
     <StyledButton>
-      <img src={StarIcon} alt="Star Icon" />
+      <h4>{props}</h4>
     </StyledButton>
   );
 };

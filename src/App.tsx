@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { RatingDialogComponent } from './components/Rating-dialog/rating-dialog';
+import { RatingDialogComponent } from './components/Rating-dialog/RatingDialog';
 
 export const Container = styled.div`
-  background-color: hsl(216, 12%, 8%);
+  background-color: hsl(228, 11%, 8%);
   height: 100vh;
   width: 100vw;
   margin: 0;

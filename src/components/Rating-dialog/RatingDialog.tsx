@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { BookmarkButton } from '../Bookmark-button/BookmarkBtn';
+
 interface RatingDialogState {
   isBookmarked: boolean;
   rating: number;
@@ -8,7 +10,7 @@ interface RatingDialogState {
 
 export const RatingDialog = styled.div`
   display: flex;
-  background-color: hsl(213, 19%, 18%);
+  background-color: #191e24;
   height: 400px;
   width: 375px;
   border-radius: 20px;
@@ -29,6 +31,10 @@ export class RatingDialogComponent extends React.Component<
   }
 
   render() {
-    return <RatingDialog>Hi there</RatingDialog>;
+    return (
+      <RatingDialog>
+        <BookmarkButton />
+      </RatingDialog>
+    );
   }
 }

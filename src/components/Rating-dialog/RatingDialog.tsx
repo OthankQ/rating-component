@@ -8,6 +8,7 @@ import { SubmitButton } from '../Submit-button/SubmitButton';
 
 interface RatingDialogState {
   isBookmarked: boolean;
+  isSubmitted: boolean;
   rating: number;
 }
 
@@ -37,6 +38,7 @@ export class RatingDialogComponent extends React.Component<
     super(props);
     this.state = {
       isBookmarked: false,
+      isSubmitted: false,
       rating: 0,
     };
     this.handleRating = this.handleRating.bind(this);
@@ -48,6 +50,8 @@ export class RatingDialogComponent extends React.Component<
       rating: parseInt(event.target.innerText),
     });
   }
+
+  handleSubmit(event: any): void {}
 
   render() {
     return (

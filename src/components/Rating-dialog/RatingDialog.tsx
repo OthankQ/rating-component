@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import styled from 'styled-components';
 
 import { BookmarkButton } from '../Bookmark-button/BookmarkBtn';
@@ -42,7 +42,12 @@ export class RatingDialogComponent extends React.Component<
     this.handleRating = this.handleRating.bind(this);
   }
 
-  handleRating() {}
+  handleRating(event: any): void {
+    console.log(event);
+    this.setState({
+      rating: parseInt(event.target.innerText),
+    });
+  }
 
   render() {
     return (
@@ -50,11 +55,31 @@ export class RatingDialogComponent extends React.Component<
         <BookmarkButton />
         <TextBox />
         <div className="number-box-row">
-          <NumberButton number="1" isSelected={true} />
-          <NumberButton number="2" isSelected={false} />
-          <NumberButton number="3" isSelected={false} />
-          <NumberButton number="4" isSelected={false} />
-          <NumberButton number="5" isSelected={false} />
+          <NumberButton
+            number="1"
+            isSelected={this.state.rating === 1}
+            onClick={this.handleRating}
+          />
+          <NumberButton
+            number="2"
+            isSelected={this.state.rating === 2}
+            onClick={this.handleRating}
+          />
+          <NumberButton
+            number="3"
+            isSelected={this.state.rating === 3}
+            onClick={this.handleRating}
+          />
+          <NumberButton
+            number="4"
+            isSelected={this.state.rating === 4}
+            onClick={this.handleRating}
+          />
+          <NumberButton
+            number="5"
+            isSelected={this.state.rating === 5}
+            onClick={this.handleRating}
+          />
         </div>
         <SubmitButton />
       </RatingDialog>

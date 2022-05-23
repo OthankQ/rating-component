@@ -25,13 +25,14 @@ export const StyledButton = styled.div<{ isSelected: boolean }>`
 export interface NumberButtonProps {
   number: string;
   isSelected: boolean;
+  onClick: (event: any) => void;
 }
 
 export const NumberButton = (props: NumberButtonProps) => {
   const { number } = props;
 
   return (
-    <StyledButton isSelected={props.isSelected}>
+    <StyledButton isSelected={props.isSelected} onClick={props.onClick}>
       <h4>{number}</h4>
     </StyledButton>
   );

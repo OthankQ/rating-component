@@ -51,7 +51,10 @@ export class RatingDialogComponent extends React.Component<
     });
   }
 
-  handleSubmit(event: any): void {}
+  handleSubmit(event: any): void {
+    event.preventDefault();
+    console.log('submit clicked');
+  }
 
   render() {
     return (
@@ -85,7 +88,7 @@ export class RatingDialogComponent extends React.Component<
             onClick={this.handleRating}
           />
         </div>
-        <SubmitButton />
+        <SubmitButton onSubmit={this.handleSubmit} />
       </RatingDialog>
     );
   }

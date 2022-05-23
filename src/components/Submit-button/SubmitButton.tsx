@@ -17,6 +17,10 @@ export const StyledButton = styled.div`
   }
 `;
 
-export const SubmitButton = () => {
-  return <StyledButton>SUBMIT</StyledButton>;
+export interface SubmitButtonProps {
+  onSubmit: (event: any) => void;
+}
+
+export const SubmitButton = (props: SubmitButtonProps) => {
+  return <StyledButton onClick={props.onSubmit}>SUBMIT</StyledButton>;
 };

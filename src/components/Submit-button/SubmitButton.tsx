@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StarIcon from '../../imgs/icon-star.svg';
-
 export const StyledButton = styled.div`
-  width: 50px;
+  width: 100%;
   height: 50px;
-  border-radius: 50%;
-  background-color: hsl(213, 19%, 18%);
+  border-radius: 30px;
+  background-color: hsl(25, 97%, 53%);
+  color: hsl(0, 0%, 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,10 +17,6 @@ export const StyledButton = styled.div`
   }
 `;
 
-export const BookmarkButton = () => {
-  return (
-    <StyledButton>
-      <img src={StarIcon} alt="Star Icon" />
-    </StyledButton>
-  );
+export const SubmitButton = () => {
+  return <StyledButton>SUBMIT</StyledButton>;
 };

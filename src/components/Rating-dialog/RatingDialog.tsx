@@ -42,6 +42,7 @@ export class RatingDialogComponent extends React.Component<
       rating: 0,
     };
     this.handleRating = this.handleRating.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleRating(event: any): void {
@@ -53,42 +54,48 @@ export class RatingDialogComponent extends React.Component<
 
   handleSubmit(event: any): void {
     event.preventDefault();
-    console.log('submit clicked');
+    this.setState((state) => {
+      return { isSubmitted: !state.isSubmitted };
+    });
   }
 
   render() {
     return (
       <RatingDialog>
-        <BookmarkButton />
-        <TextBox />
-        <div className="number-box-row">
-          <NumberButton
-            number="1"
-            isSelected={this.state.rating === 1}
-            onClick={this.handleRating}
-          />
-          <NumberButton
-            number="2"
-            isSelected={this.state.rating === 2}
-            onClick={this.handleRating}
-          />
-          <NumberButton
-            number="3"
-            isSelected={this.state.rating === 3}
-            onClick={this.handleRating}
-          />
-          <NumberButton
-            number="4"
-            isSelected={this.state.rating === 4}
-            onClick={this.handleRating}
-          />
-          <NumberButton
-            number="5"
-            isSelected={this.state.rating === 5}
-            onClick={this.handleRating}
-          />
-        </div>
-        <SubmitButton onSubmit={this.handleSubmit} />
+        {!this.state.isSubmitted ? (
+          <>
+            <BookmarkButton />
+            <TextBox />
+            <div className="number-box-row">
+              <NumberButton
+                number="1"
+                isSelected={this.state.rating === 1}
+                onClick={this.handleRating}
+              />
+              <NumberButton
+                number="2"
+                isSelected={this.state.rating === 2}
+                onClick={this.handleRating}
+              />
+              <NumberButton
+                number="3"
+                isSelected={this.state.rating === 3}
+                onClick={this.handleRating}
+              />
+              <NumberButton
+                number="4"
+                isSelected={this.state.rating === 4}
+                onClick={this.handleRating}
+              />
+              <NumberButton
+                number="5"
+                isSelected={this.state.rating === 5}
+                onClick={this.handleRating}
+              />
+            </div>
+            <SubmitButton onSubmit={this.handleSubmit} />
+          </>
+        ) : null}
       </RatingDialog>
     );
   }

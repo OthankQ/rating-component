@@ -20,14 +20,16 @@ export const StyledText = styled.div`
   }
 `;
 
-export const TextBox = () => {
+interface TextBoxProps {
+  headline: string;
+  paragraph: string;
+}
+
+export const TextBox = (props: TextBoxProps) => {
   return (
     <StyledText>
-      <h2>How did we do?</h2>
-      <p>
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering!
-      </p>
+      <h2>{props.headline}</h2>
+      <p>{props.paragraph}</p>
     </StyledText>
   );
 };

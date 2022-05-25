@@ -5,6 +5,9 @@ import { BookmarkButton } from '../Bookmark-button/BookmarkBtn';
 import { TextBox } from '../Text-box/TextBox';
 import { NumberButton } from '../Number-button/NumberButton';
 import { SubmitButton } from '../Submit-button/SubmitButton';
+import { RatingIndicator } from '../RatingIndicator/RatingIndicator';
+
+import ThankYou from '../../imgs/illustration-thank-you.svg';
 
 interface RatingDialogState {
   isBookmarked: boolean;
@@ -28,6 +31,18 @@ export const RatingDialog = styled.div`
     justify-content: space-between;
     color: hsl(217, 12%, 63%);
   }
+  .thankyou {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    img {
+      width: 180px;
+    }
+  }
 `;
 
 export class RatingDialogComponent extends React.Component<
@@ -46,7 +61,6 @@ export class RatingDialogComponent extends React.Component<
   }
 
   handleRating(event: any): void {
-    console.log(event);
     this.setState({
       rating: parseInt(event.target.innerText),
     });
@@ -60,12 +74,19 @@ export class RatingDialogComponent extends React.Component<
   }
 
   render() {
+    const ratingHeadline = 'How did we do?';
+    const ratingParagraph =
+      'Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!';
+    const thankyouHeadline = 'Thank you!';
+    const thankyouParagraph =
+      "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!";
+
     return (
       <RatingDialog>
         {!this.state.isSubmitted ? (
           <>
             <BookmarkButton />
-            <TextBox />
+            <TextBox headline={ratingHeadline} paragraph={ratingParagraph} />
             <div className="number-box-row">
               <NumberButton
                 number="1"
@@ -95,7 +116,18 @@ export class RatingDialogComponent extends React.Component<
             </div>
             <SubmitButton onSubmit={this.handleSubmit} />
           </>
-        ) : null}
+        ) : (
+          <>
+            <div className="thankyou">
+              <img src={ThankYou} alt="Thank You Illustration" />
+              <RatingIndicator rating={this.state.rating} />
+              <TextBox
+                headline={thankyouHeadline}
+                paragraph={thankyouParagraph}
+              />
+            </div>
+          </>
+        )}
       </RatingDialog>
     );
   }

@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/OthankQ/rating-component)
-- Live Site URL: [Add live site URL here](https://othankq.github.io/rating-component/)
+- Solution URL: [Github](https://github.com/OthankQ/rating-component)
+- Live Site URL: [Github Pages](https://othankq.github.io/rating-component/)
 
 ## My process
 
